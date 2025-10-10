@@ -58,7 +58,7 @@ La base del sistema:
 
 ## Dependencias de Software 📦
 
-Las dependencias son cruciales para el desarrollo de la imagen con **Yocto Project**, ya que deben incluirse como recetas en el build system.
+Las dependencias son importantes para el desarrollo de la imagen con **Yocto Project**, ya que deben incluirse como recetas en el build system.
 
 | Dependencia | Tipo | Propósito |
 |-------------|------|-----------|
@@ -90,4 +90,7 @@ La estrategia garantiza que la aplicación de **Edge AI** corra de manera robust
 
 6. **Despliegue y Verificación:**  
    Instalar la imagen generada en la Raspberry Pi y demostrar su operación correcta.
+   
+   
+   Aún en desarrollo, falta agregar imagenes de la arquitectura y sus conexiones. Ampliar y especificar el hardware etc.
 

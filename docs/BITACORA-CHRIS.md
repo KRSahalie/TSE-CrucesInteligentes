@@ -1,3 +1,3 @@
-#Bitácora de Chris.
+# Bitácora de Chris
 
-Agregando...
+Esta bitácora documenta los avances realizados por Chris, en el proyecto **Cruces Inteligentes con Edge AI**.
