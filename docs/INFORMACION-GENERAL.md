@@ -1,3 +1,3 @@
-#La información general abarca los puntos 1,2,3,4 y 5 de la entrega preliminar.
+# La información general abarca los puntos 1,2,3,4 y 5 de la entrega preliminar.
 
 Agregando...
