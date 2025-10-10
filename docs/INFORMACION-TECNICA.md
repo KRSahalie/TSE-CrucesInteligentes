@@ -1,0 +1,3 @@
+#La información técnica explica los puntos 6,7,8 y 9 de la entrega preliminar.
+
+Agregando...
