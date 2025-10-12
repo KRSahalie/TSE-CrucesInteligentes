@@ -5,10 +5,8 @@
 [![Estado](https://img.shields.io/badge/estado-en_desarrollo-blue.svg)]()
 [![Plataforma](https://img.shields.io/badge/target-Raspberry%20Pi-green.svg)]()
 [![Build](https://img.shields.io/badge/build-Yocto-kirkstone.svg)]()
-[![Lenguajes](https://img.shields.io/badge/lenguajes-Python%20%7C%20Bash%20%7C%20C/C%2B%2B-orange.svg)]()
+[![Lenguajes](https://img.shields.io/badge/lenguajes-Python-orange.svg)]()
 [![Stack](https://img.shields.io/badge/stack-OpenCV%20%7C%20TensorFlow%20Lite%20%7C%20V4L2%20%7C%20systemd-lightgrey.svg)]()
-
----
 
 ## 📘 Descripción del Proyecto  
 El proyecto tiene como objetivo diseñar e implementar un sistema de **cruce inteligente** que utilice **Edge AI** (inteligencia artificial en el borde) para detectar vehículos, peatones o fauna, y optimizar el flujo del tráfico de forma autónoma.  
