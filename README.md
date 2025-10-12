@@ -95,16 +95,6 @@ El sistema estará basado en **Raspberry Pi**, integrando **TensorFlow Lite** y 
 - **CA5.** **Imagen bootea**, servicio corre, detección visible y métricas publicadas.
 - **CA6.** **Plan** con hitos alineados a propuesta/demos.
 
-### 4.5 Matriz de rastreabilidad
-> **TODO:** Completar tabla RF/RNF ↔ Casos de Uso ↔ Pruebas ↔ CA.
->
-> | ID | Tipo | Descripción | Caso(s) de Uso | Prueba(s) | CA |
-> |----|------|-------------|-----------------|-----------|----|
-> | RF1 | Funcional | Capturar video en tiempo real | UC2 | T-CAM-01 | CA2 |
-> | RF2 | Funcional | Detección y clasificación TFLite | UC3 | T-DET-01 | CA2 |
-> | RNF1 | No Funcional | Latencia ≤ 500 ms | UC3–UC5 | T-PERF-01 | CA5 |
-> | … | … | … | … | … | … |
-
 ---
 
 ## 5. Casos de uso
