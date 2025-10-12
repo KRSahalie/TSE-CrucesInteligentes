@@ -73,7 +73,6 @@ El sistema estará basado en **Raspberry Pi**, integrando **TensorFlow Lite** y 
 - **RF5.** Exponer métricas localmente (CLI/log) y **publicar** a red (HTTP/MQTT).
 - **RF6.** **Arranque autónomo**: service de la app al boot (systemd).
 - **RF7.** **Registro de auditoría**: fallos, latencias, FPS y salud del nodo.
-- **RF8.** Demostrar los **casos de uso** definidos (ver sección 5).
 
 ### 4.2 Requerimientos no funcionales (RNF)
 - **RNF1.** Latencia “captura→detección→evento” ≤ **500 ms** (meta demo).
