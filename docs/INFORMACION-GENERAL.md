@@ -36,20 +36,55 @@
 
 ---
 
-## 4. Casos de uso
+## Casos de uso por actor
+### Administrador
 
-**Actores:** Operador (humano), Vehiculos, administrador.
+1. **Configurar parámetros del sistema**  
+   Ajusta umbrales de detección (distancia, confianza de modelo, umbrales de cola), temporización de fases y permisos de red.  
+   _Post:_ Sistema actualizado y registrado en logs.
 
-- **UC1. Inicializar nodo** — *Pre:* Imagen Yocto instalada. *Flujo:* Arranca SO → systemd lanza app → valida cámara/modelo. *Post:* Servicio “listo”.
-- **UC2. Capturar video** — *Flujo:* Obtener frames ≥10 FPS; manejar errores de dispositivo. *Post:* Frames en buffer.
-- **UC3. Detectar y clasificar objetos** — *Flujo:* Inferencia TFLite por frame → bboxes + clase. *Post:* Detecciones por frame.
-- **UC4. Seguir objetos (tracking)** — *Flujo:* Asociar detecciones entre frames; asignar IDs; trayectorias. *Post:* Tracking activo.
-- **UC5. Generar eventos y métricas** — *Flujo:* Conteos por clase/tiempo; KPIs. *Post:* Evento + KPIs actualizados.
-- **UC6. Publicar datos a la red** — *Flujo:* HTTP/MQTT; reconexión si falla. *Post:* Confirmación o reintento.
-- **UC7. Monitorear estado** — *Flujo:* Consultar FPS/latencia/CPU/RAM/estado cámara-red. *Post:* Salud verificada.
-- **UC8. Gestionar fallos de cámara** — *Flujo:* Detectar desconexión; reabrir dispositivo; log. *Post:* Recuperación sin reboot.
-- **UC9. Apagar/actualizar nodo** — *Flujo:* Detener servicio; actualizar imagen/paquete; reiniciar. *Post:* Nodo actualizado.
-- **UC10. Demostración académica** — *Flujo:* Presentación end-to-end en Pi. *Post:* Evidencia para evaluación.
+2. **Reiniciar o actualizar software**  
+   Ejecuta reinicio seguro del nodo, actualiza imagen Yocto o paquete de la app Edge AI.  
+   _Post:_ Nodo operativo con última versión.
+
+4. **Consultar reportes de tráfico**  
+   Accede a históricos de conteos vehiculares y cruces peatonales.  
+   _Post:_ Informes listos para análisis y toma de decisiones.
+
+
+### Peatón
+
+1. **Solicitar paso peatonal**  
+   Presiona el botón o sensor capacitivo → el sistema agenda la fase segura de cruce.  
+   _Post:_ Semáforo peatonal verde y temporizador visible.
+
+2. **Alertar situación de riesgo**  
+   Botón de emergencia u orden manual si se detecta un vehículo invasor.  
+   _Post:_ Evento registrado y alerta al administrador.
+
+3. **Consultar tiempo restante de cruce**  
+   Pantalla o voz sintética indica cuánto falta para cerrar la fase.  
+   _Post:_ Información accesible para personas con discapacidad.
+
+
+### Vehículo (conductor)
+
+1. **Detectar aproximación**  
+   El sistema de visión detecta el vehículo y clasifica tipo (auto, bus, moto, emergencia).  
+   _Post:_ Demanda vehicular actualizada.
+
+2. **Esperar cambio de color (fase)**  
+   Si el semáforo está en rojo, mantiene la columna de espera según la cola detectada.  
+   _Post:_ Tiempo de espera monitoreado y reportado.
+
+3. **Vehículo de emergencia prioritario**  
+   Detección por sirena/luces → se otorga fase preferente.  
+   _Post:_ Tránsito priorizado y evento registrado.
+
+4. **Infracción por cruce en rojo**  
+   Vehículo entra en rojo → el sistema genera evidencia (captura + timestamp).  
+   _Post:_ Reporte enviado al administrador y almacenado en logs.
+
 
 <p align="center">
   <img src="https://github.com/KRSahalie/TSE-CrucesInteligentes/blob/main/imagenes/Diagrama%20de%20caso%20de%20uso.png" alt="Diagrama de casos de uso" width="600">
