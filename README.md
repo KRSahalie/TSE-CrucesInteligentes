@@ -174,24 +174,6 @@ Con base en lo anterior, en la siguiente sección se detallan los requerimientos
 - **KPIs mínimos:** FPS, latencia, CPU/RAM, tamaño de cola, tasa de publicación, conteos por clase.  
 > **TODO:** Formato de logs (JSON/CSV), niveles, ejemplo de export (HTTP/MQTT), dashboard local si aplica.
 
----
-## 11. Bitacora Christopher
-
-### 8/10/2025
-- Se determinaron los requisitos que debe cumplir el sistema.  
-- Desarrollo del diagrama de casos de uso.  
-- Creación y establecimiento de los task en el diagrama de Gantt.  
-
-### 9/10/2025
-- Configuración del entorno de desarrollo en Yocto.  
-- Verificación de dependencias y herramientas del sistema embebido.  
-- Actualización del repositorio en GitHub.
-
----
-## 12. Bitacora Elena
-
----
-## 13. Bitacora Kendy
 
 ---
 ## 14. 📚 Documentación Entrega Preliminar
