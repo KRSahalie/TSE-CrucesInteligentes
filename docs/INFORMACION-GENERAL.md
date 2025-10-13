@@ -66,7 +66,6 @@
    Pantalla o voz sintética indica cuánto falta para cerrar la fase.  
    _Post:_ Información accesible para personas con discapacidad.
 
-
 ### Vehículo (conductor)
 
 1. **Detectar aproximación**  
