@@ -6,22 +6,26 @@
 [![Lenguajes](https://img.shields.io/badge/lenguajes-Python-orange.svg)]()
 [![Stack](https://img.shields.io/badge/stack-OpenCV%20%7C%20TensorFlow%20Lite%20%7C%20V4L2%20%7C%20systemd-lightgrey.svg)]()
 
-## 📑 Tabla de Contenido
+## Tabla de Contenido
 - [1. Introducción](#1-introducción)
-- [2. Justificacion](#2-síntesis-del-problema)
-- [3. Requerimientos](#4-requerimientos)
-  - [3.1 Requerimientos funcionales (RF)](#41-requerimientos-funcionales-rf)
-  - [3.2 Requerimientos no funcionales (RNF)](#42-requerimientos-no-funcionales-rnf)
-  - [3.3 Interfaces y dependencias](#43-interfaces-y-dependencias)
-  - [3.4 Criterios de aceptación](#44-criterios-de-aceptación)
-- [4. Casos de uso](#5-casos-de-uso)
-- [5. Arquitectura del sistema](#6-arquitectura-del-sistema)
-- [6. Vista operacional y funcional](#7-vista-operacional-y-funcional)
-- [7. Plan de trabajo y cronograma](#8-plan-de-trabajo-y-cronograma)
-- [8. Integración y despliegue (Yocto)](#9-integración-y-despliegue-yocto)
-- [9. Pruebas y validación](#10-pruebas-y-validación)
-- [10. Métricas y observabilidad](#11-métricas-y-observabilidad)
-- [11. Bitácoras y repositorio](#14-bitácoras-y-repositorio)
+- [2. Justificación](#2-justificación)
+- [3. Requerimientos](#3-requerimientos)
+  - [3.1 Requerimientos funcionales (RF)](#31-requerimientos-funcionales-rf)
+  - [3.2 Requerimientos no funcionales (RNF)](#32-requerimientos-no-funcionales-rnf)
+  - [3.3 Interfaces y dependencias](#33-interfaces-y-dependencias)
+  - [3.4 Criterios de aceptación](#34-criterios-de-aceptación)
+- [4. Casos de uso](#4-casos-de-uso)
+- [5. Arquitectura del sistema](#5-arquitectura-del-sistema)
+- [6. Vista operacional y funcional](#6-vista-operacional-y-funcional)
+- [7. Plan de trabajo y cronograma](#7-plan-de-trabajo-y-cronograma)
+- [8. Integración y despliegue (Yocto)](#8-integración-y-despliegue-yocto)
+- [9. Pruebas y validación](#9-pruebas-y-validación)
+- [10. Métricas y observabilidad](#10-métricas-y-observabilidad)
+- [11. Bitácora Christopher](#11-bitacora-christopher)
+- [12. Bitácora Elena](#12-bitacora-elena)
+- [13. Bitácora Kendy](#13-bitacora-kendy)
+- [14. Documentación Entrega Preliminar](#14--documentación-entrega-preliminar)
+
 
 ---
 
@@ -171,7 +175,26 @@ Con base en lo anterior, en la siguiente sección se detallan los requerimientos
 > **TODO:** Formato de logs (JSON/CSV), niveles, ejemplo de export (HTTP/MQTT), dashboard local si aplica.
 
 ---
-## 11. 📚 Documentación Entrega Preliminar
+## 11. Bitacora Christopher
+
+### 8/10/2025
+- Se determinaron los requisitos que debe cumplir el sistema.  
+- Desarrollo del diagrama de casos de uso.  
+- Creación y establecimiento de los task en el diagrama de Gantt.  
+
+### 9/10/2025
+- Configuración del entorno de desarrollo en Yocto.  
+- Verificación de dependencias y herramientas del sistema embebido.  
+- Actualización del repositorio en GitHub.
+
+---
+## 12. Bitacora Elena
+
+---
+## 13. Bitacora Kendy
+
+---
+## 14. 📚 Documentación Entrega Preliminar
 - [Cronograma del proyecto](docs/CRONOGRAMA.md)
 - [Información General del Sistema](docs/INFORMACION-GENERAL.md)
 - [Información Técnica del Sistema](docs/INFORMACION-TECNICA.md)
