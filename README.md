@@ -8,10 +8,6 @@
 
 ---
 
-## 📘 Descripción del Proyect 
-El proyecto tiene como objetivo diseñar e implementar un sistema de **cruce inteligente** que utilice **Edge AI** (inteligencia artificial en el borde) para detectar vehículos, peatones o fauna, y optimizar el flujo del tráfico de forma autónoma.  
-El sistema estará basado en **Raspberry Pi**, integrando **TensorFlow Lite** y **OpenCV**, dentro de una imagen Linux personalizada generada con **Yocto Project**.
-=======
 
 ## 1. Introducción  
 <p align="justify">
