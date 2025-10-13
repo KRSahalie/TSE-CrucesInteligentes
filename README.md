@@ -112,7 +112,9 @@ El sistema estará basado en **Raspberry Pi**, integrando **TensorFlow Lite** y 
 - **UC9. Apagar/actualizar nodo** — *Flujo:* Detener servicio; actualizar imagen/paquete; reiniciar. *Post:* Nodo actualizado.
 - **UC10. Demostración académica** — *Flujo:* Presentación end-to-end en Pi. *Post:* Evidencia para evaluación.
 
-> **Nota:** Usa esta lista para dibujar tu **diagrama de casos de uso** y **secuencias** por escenario.
+<p align="center">
+  <img src="imagenes/Diagrama de caso de uso.png" alt="Casos de uso del sistema" width="600"/>
+</p>
 
 ---
 
