@@ -46,6 +46,8 @@ El proyecto también posee un alto valor formativo, al poner al equipo frente a 
 - [Cronograma del proyecto](docs/CRONOGRAMA.md)
 - [Información General del Sistema](docs/INFORMACION-GENERAL.md)
 - [Información Técnica del Sistema](docs/INFORMACION-TECNICA.md)
+
+## 📝Bitácora
 - [Bitácora de Kendy](docs/BITACORA-KENDY.md)
 - [Bitácora de Elena](docs/BITACORA-ELENA.md)
 - [Bitácora de Chris](docs/BITACORA-CHRIS.md)
