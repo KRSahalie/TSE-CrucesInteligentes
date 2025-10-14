@@ -10,7 +10,7 @@ El sistema estará basado en **Raspberry Pi**, integrando **TensorFlow Lite** y 
 - [Información General del Sistema](docs/INFORMACION-GENERAL.md)
 - [Información Técnica del Sistema](docs/INFORMACION-TECNICA.md)
 
-## 📝Bitácora
+## 📝Bitácoras
 - [Bitácora de Kendy](docs/BITACORA-KENDY.md)
 - [Bitácora de Elena](docs/BITACORA-ELENA.md)
 - [Bitácora de Chris](docs/BITACORA-CHRIS.md)
