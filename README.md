@@ -47,7 +47,7 @@ El proyecto también posee un alto valor formativo, al poner al equipo frente a 
 - [Información General del Sistema](docs/INFORMACION-GENERAL.md)
 - [Información Técnica del Sistema](docs/INFORMACION-TECNICA.md)
 
-## 📝Bitácora
+## 📝Bitácoras
 - [Bitácora de Kendy](docs/BITACORA-KENDY.md)
 - [Bitácora de Elena](docs/BITACORA-ELENA.md)
 - [Bitácora de Chris](docs/BITACORA-CHRIS.md)
