@@ -1,7 +1,3 @@
-Documento creado por la integrante Kendy Arias Ortiz con rol de líder técnico.
-
-# La información técnica explica los puntos 6, 7, 8 y 9 de la entrega preliminar.
-
 # 6. Vista Funcional del Sistema: Descomposición de Funciones
 
 El sistema **Cruces Inteligentes con Edge AI** se descompone en módulos funcionales esenciales para cumplir con los requerimientos establecidos anteriormente. Esta vista describe las capacidades del sistema, basándose en la necesidad de captura, procesamiento y clasificación de objetos en cruces concurridos, además de los módulos para el control del semáforo del cruce.
