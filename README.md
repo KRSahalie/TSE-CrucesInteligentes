@@ -43,12 +43,10 @@ El proyecto también posee un alto valor formativo, al poner al equipo frente a 
 </p>
 
 
-
-## 3. Fuentes bibliográficas que fundamentan el proyecto
-
-
 ## 4. Descripción y síntesis del problema
 
+
+## 3. Fuentes bibliográficas que fundamentan el proyecto
 
 
 ---
