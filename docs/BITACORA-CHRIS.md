@@ -17,8 +17,10 @@
 ## 19/10/2025
 - Desarrollo de imagen minima para Raspberry pi 4
 - Desarrollo del script en pythton para deteccion de vehiculos y peatones.
+- Actualizacion de la documentacion en el repositorio.
 
 ## Estado Actual
 - El proyecto y la documentación **siguen en desarrollo**.
 - Próximos pasos: comprobación del funcionamiento del script y ajustes finales en los documentos de la entrega preliminar.
+- Actualizacion de la documentacion en el repositorio.
 
