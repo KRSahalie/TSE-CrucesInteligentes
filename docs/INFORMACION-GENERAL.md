@@ -1,5 +1,9 @@
 # La información general abarca los puntos 1,2,3,4 y 5 de la entrega preliminar.
 
+## 1.
+
+## 2.
+
 ## 3. Requerimientos
 
 ### 3.1 Requerimientos funcionales (RF)
@@ -88,6 +92,3 @@
 <p align="center">
   <img src="https://github.com/KRSahalie/TSE-CrucesInteligentes/blob/main/imagenes/Diagrama%20de%20caso%20de%20uso.png" alt="Diagrama de casos de uso" width="600">
 </p>
-
-
-Agregando...
