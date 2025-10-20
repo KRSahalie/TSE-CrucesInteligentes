@@ -23,7 +23,7 @@ El presente proyecto propone el desarrollo de un sistema embebido que funcione c
 El desarrollo de este tipo de sistemas no solo promueve la aplicación práctica de los conocimientos adquiridos en la asignatura de Sistemas Embebidos, sino que también alinea la formación del estudiantado con las tendencias actuales de la industria electrónica, donde convergen la inteligencia artificial, el IoT y la computación de borde.
 </p>
 
----
+
 
 ## 2. Justificación
 <p align="justify">
@@ -42,11 +42,11 @@ Desde la perspectiva tecnológica, la iniciativa articula un ecosistema embebido
 El proyecto también posee un alto valor formativo, al poner al equipo frente a retos reales de ingeniería: levantamiento y priorización de requerimientos, diseño de arquitecturas de hardware y software, manejo de dependencias, pruebas en campo y validación contra casos de uso. Así, el estudiantado fortalece competencias clave —diseño, integración, validación y documentación— alineadas con las demandas actuales de la industria electrónica y de sistemas embebidos.
 </p>
 
----
+
 
 ## 3. Fuentes bibliográficas que fundamentan el proyecto
 
----
+
 ## 4. Descripción y síntesis del problema
 
 
