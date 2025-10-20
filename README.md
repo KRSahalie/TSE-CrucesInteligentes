@@ -61,4 +61,5 @@ El proyecto también posee un alto valor formativo, al poner al equipo frente a 
 - [Bitácora de Kendy](docs/BITACORA-KENDY.md)
 - [Bitácora de Elena](docs/BITACORA-ELENA.md)
 - [Bitácora de Chris](docs/BITACORA-CHRIS.md)
+- [Diagrama de Gantt](https://estudianteccr-my.sharepoint.com/:x:/g/personal/acostchris_estudiantec_cr/ERtFBhxp_XxPtcSzFqkqFTgBtX6mbRqnva7ExeMKVMnOEw?e=FxJHmr)
 
