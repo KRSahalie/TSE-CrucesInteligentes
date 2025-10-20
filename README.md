@@ -47,22 +47,29 @@ El proyecto también posee un alto valor formativo, al poner al equipo frente a 
 
 
 ## 3. Fuentes bibliográficas
+<p align="justify">
 ⦁	Haofeng Wang and Yan Zhang. 2025. Research on pedestrian detection algorithm in dense scenes. In The 4th International Conference on Computer, Artificial Intelligence and Control Engineering (CAICE 2025), January 10–12, 2025, Heifei, China. ACM, New York, NY, USA, 7 pages. https://doi.org/10.1145/3727648.3727655
+</p>
 
+<p align="justify">
 ⦁	Chenxu Li and Chunmei Wang. 2024. Analysis According to the Algorithm of Pedestrian Vehicle Target Detection in Hazy Weather Based on Improved YOLOv8. In 2024 7th International Conference on Artificial Intelligence and Pattern Recognition (AIPR 2024), September 20–22, 2024, Xiamen, China. ACM, New York, NY, USA, 5 pages. https://doi.org/10.1145/3703935.3704068
+</p>
 
-
+<p align="justify">
 ⦁	Anilcan Bulut, Fatmanur Ozdemir, Yavuz Selim Bostanci, and Mujdat Soyturk. 2023. Performance Evaluation of Recent Object Detection Models
+</p>
 
-
+<p align="justify">
 ⦁	 W. Kim e I. Jung, “Smart Parking Lot Based on Edge Cluster Computing for Full  Self-Driving Vehicles,” IEEE Access, vol. 10, págs. 115271-115281, 2022. DOI: 10.1109/ACCESS.2022.3208356.
+</p>
 
-
+<p align="justify">
 ⦁	Komal Saini and Sandeep Sharma. 2025. Smart Road Traffic Monitoring: Unveiling the Synergy of IoT and AI for Enhanced Urban Mobility. ACM Comput. Surv. 57, 11, Article 276 (June 2025), 45 pages. https://doi.org/10.1145/3729217
+</p>
 
-
+<p align="justify">
 ⦁	Kasra Aminiyeganeh and Rodolfo W. L. Coutinho. 2023. Performance Evaluation of CNN-based Object Detectors on Embedded Devices. In Proceedings of the Int’l ACM Symposium on Design and Analysis of Intelligent Vehicular Networks and Applications (DIVANet ’23), October 30-November-2023, Montreal, QC, Canada. ACM, New York, NY, USA, 6 pages. https://doi.org/10.1145/3616392.3623417
-
+</p>
 
 
 
