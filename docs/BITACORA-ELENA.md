@@ -30,4 +30,5 @@ Esta bitácora documenta los avances realizados por Elena, en el proyecto **Cruc
 ---
 ## 20/10/20025
 -revisión final para hacer la entrega preliminar de la primera parte del proyecto. 
+-pasar lo del readme al overleaf.
 
