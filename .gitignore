@@ -1,9 +1,28 @@
-#Archivos temporales
-*.log
-*.tmp
-*.swp
+# Ignora TODO por defecto
+*
 
-#Sistema Operativo
-.DS_Store
-Thumbs.db
+# Permite este propio archivo
+!.gitignore
 
+# ---- Python que SÍ quieres subir ----
+!/multi_cam_tracker.py
+
+# (Si tu .py está en otra ruta, por ejemplo src/app.py, usa:)
+# !/src/app.py
+
+# ---- Carpeta de artefactos permitida ----
+!/artifacts/
+
+# Dentro de artifacts, ignora todo...
+artifacts/**
+
+# ...pero permite SOLO la imagen mínima (extensiones típicas de Yocto)
+!artifacts/core-image-minimal-*.wic
+!artifacts/core-image-minimal-*.wic.bz2
+!artifacts/core-image-minimal-*.sdimg
+!artifacts/core-image-minimal-*.img
+!artifacts/core-image-minimal-*.ext4
+!artifacts/core-image-minimal-*.vmdk
+!artifacts/core-image-minimal-*.vdi
+!artifacts/core-image-minimal-*.iso
+!artifacts/core-image-minimal-*.rootfs.tar.xz
