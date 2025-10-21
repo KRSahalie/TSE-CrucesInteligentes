@@ -44,7 +44,19 @@ El proyecto también posee un alto valor formativo, al poner al equipo frente a 
 
 
 ## 4. Descripción y síntesis del problema
+El problema que aborda este proyecto no se limita solo al incremento del parque vehicular, sino a la complejidad con que conviven diferentes actores en una intersección urbana. Peatones, ciclistas, automovilistas y hasta fauna se mueven con patrones heterogéneos en espacios reducidos, generando riesgos de colisión e incertidumbre en el flujo de tránsito. Los sistemas actuales —temporizaciones fijas en semáforos y conteos manuales— no son capaces de anticipar comportamientos ni adaptarse a cambios repentinos, por lo que resultan insuficientes para garantizar seguridad y fluidez en estos cruces.
 
+La síntesis de esta problemática señala la necesidad de dotar a los cruces de una visión integral y reactiva. Esto implica desarrollar nodos inteligentes de bajo coste, basados en plataformas como Raspberry Pi, que integren cámaras y sensores para observar la escena local, ejecutar modelos de visión por computador optimizados y generar métricas precisas en tiempo real. Al procesar los datos en el mismo sitio (edge computing), se reducen la latencia y la dependencia de la nube, y se preserva la privacidad de los usuarios. Sin embargo, esta solución exige afrontar desafíos técnicos: adaptar modelos de IA a recursos limitados, integrar hardware heterogéneo y gestionar el sistema operativo mediante herramientas como Yocto Project y TensorFlow Lite.
+
+En esencia, el proyecto plantea diseñar un sistema replicable y escalable capaz de:
+
+⦁ Detectar y clasificar en tiempo real peatones, ciclistas, fauna y vehículos.
+
+⦁ Proveer datos útiles para ajustes semafóricos, activación de alertas preventivas y caracterización de riesgos específicos de cada cruce.
+
+⦁ Facilitar la toma de decisiones operativas y de política pública basadas en evidencias cuantitativas.
+
+Este enfoque no solo responde a una necesidad real del entorno urbano, sino que también representa una oportunidad educativa. La implementación de un nodo embebido con Edge AI obliga a los estudiantes a enfrentarse a retos de selección de hardware, optimización de software y validación de sistemas en condiciones reales, alineándolos con las tendencias de la industria electrónica y de sistemas embebidos.
 
 ## 3. Fuentes bibliográficas
 <p align="justify">
