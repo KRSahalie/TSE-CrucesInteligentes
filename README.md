@@ -100,7 +100,7 @@ Este enfoque no solo responde a una necesidad real del entorno urbano, sino que 
 </p>
 
 <p align="justify">
-Haris, K.M., Fatima, N.S., Albeez, S.A. (2023). Advanced Vehicle Detection Heads-Up Display with TensorFlow Lite. In: Shakya, S., Balas, V.E., Haoxiang, W. (eds) Proceedings of Third International Conference on Sustainable Expert Systems . Lecture Notes in Networks and Systems, vol 587. Springer, Singapore. https://doi.org/10.1007/978-981-19-7874-6_47
+⦁ Haris, K.M., Fatima, N.S., Albeez, S.A. (2023). Advanced Vehicle Detection Heads-Up Display with TensorFlow Lite. In: Shakya, S., Balas, V.E., Haoxiang, W. (eds) Proceedings of Third International Conference on Sustainable Expert Systems . Lecture Notes in Networks and Systems, vol 587. Springer, Singapore. https://doi.org/10.1007/978-981-19-7874-6_47
 </p>
 
 ---
