@@ -71,7 +71,25 @@ El proyecto también posee un alto valor formativo, al poner al equipo frente a 
 ⦁	Kasra Aminiyeganeh and Rodolfo W. L. Coutinho. 2023. Performance Evaluation of CNN-based Object Detectors on Embedded Devices. In Proceedings of the Int’l ACM Symposium on Design and Analysis of Intelligent Vehicular Networks and Applications (DIVANet ’23), October 30-November-2023, Montreal, QC, Canada. ACM, New York, NY, USA, 6 pages. https://doi.org/10.1145/3616392.3623417
 </p>
 
+<p align="justify">
+⦁	C. -L. Su, W. -C. Lai, Y. -K. Zhang, T. -J. Guo, Y. -J. Hung and H. -C. Chen, "Artificial Intelligence Design on Embedded Board with Edge Computing for Vehicle Applications," 2020 IEEE Third International Conference on Artificial Intelligence and Knowledge Engineering (AIKE), Laguna Hills, CA, USA, 2020, pp. 130-133, doi: 10.1109/AIKE48582.2020.00026. keywords: {Quantization (signal);Convolution;Neural networks;Memory management;Parallel processing;Network architecture;Edge computing;artificial intelligence;edge computing;embedded;vehicle},
+</p>
 
+<p align="justify">
+⦁	Mohandas, R., Bhattacharya, M., Penica, M., Van Camp, K., & Hayes, M. J. (2020). TensorFlow enabled deep learning model optimization for enhanced realtime person detection using Raspberry Pi operating at the edge. En Proceedings of the Irish Conference on Artificial Intelligence and Cognitive Science (AICS 2020) (Vol. 2771, pp. 157-168). CEUR Workshop Proceedings. Recuperado de https://web.archive.org/web/20220419204828id_/http://ceur-ws.org/Vol-2771/AICS2020_paper_61.pdf
+</p>
+
+<p align="justify">
+⦁ Oranen, L. (2021). Utilizing deep learning on embedded devices (Master’s thesis, Tampere University, Faculty of Medicine and Health Technology). Tampere University. From https://trepo.tuni.fi/bitstream/handle/10024/133689/OranenLeevi.pdf?sequence=2
+</p>
+
+<p align="justify">
+⦁ Lightsout. (2015, April 16). Capturing video from two cameras in OpenCV at once [Question on the Stack Overflow forum]. Stack Overflow. Retrieved October 20, 2025, from https://stackoverflow.com/questions/29664399/capturing-video-from-two-cameras-in-opencv-at-once?utm_source=chatgpt.com
+</p>
+
+<p align="justify">
+Haris, K.M., Fatima, N.S., Albeez, S.A. (2023). Advanced Vehicle Detection Heads-Up Display with TensorFlow Lite. In: Shakya, S., Balas, V.E., Haoxiang, W. (eds) Proceedings of Third International Conference on Sustainable Expert Systems . Lecture Notes in Networks and Systems, vol 587. Springer, Singapore. https://doi.org/10.1007/978-981-19-7874-6_47
+</p>
 
 ---
 ## 📚 Documentación Entrega Preliminar
