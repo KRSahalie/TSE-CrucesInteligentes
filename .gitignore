@@ -1,25 +1,31 @@
-# --- BitBake / Yocto outputs (ignorar) ---
+# --- Ignorar outputs de BitBake/Yocto (por defecto) ---
 artifacts/**
 downloads/
 sstate-cache/
 tmp/
 build*/tmp/
-*.wic*
-*.rpi-sdimg*
-*.bmap
-*.manifest
 *.dtb
 bootfiles/
 overlays/
 yocto-*/
 
-# --- Videos / media (ignorar) ---
+# --- Mantener SOLO las imágenes mínimas y su bmap/manifest ---
+!artifacts/*.wic.bz2
+!artifacts/*.wic.xz
+!artifacts/*.rpi-sdimg.xz
+!artifacts/*.wic.bmap
+!artifacts/*.wic.bmap.gz
+!artifacts/*rootfs.manifest
+!artifacts/.gitkeep
+!artifacts/README.md
+
+# --- Ignorar videos ---
 *.mp4
 *.mov
 *.mkv
 *.avi
 
-# --- Modelos ML / binarios pesados (recomendado ignorar) ---
+# --- Ignorar modelos pesados ---
 *.pt
 *.onnx
 *.bin
@@ -28,7 +34,3 @@ yocto-*/
 .venv/
 __pycache__/
 *.pyc
-
-# Permitir placeholders si quieres dejar la carpeta vacía en el repo
-!artifacts/.gitkeep
-!artifacts/README.md
