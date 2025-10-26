@@ -1,5 +1,9 @@
-# --- Artifacts Yocto / binarios / firmware ---
-artifacts/
+# --- BitBake / Yocto outputs (ignorar) ---
+artifacts/**
+downloads/
+sstate-cache/
+tmp/
+build*/tmp/
 *.wic*
 *.rpi-sdimg*
 *.bmap
@@ -9,13 +13,13 @@ bootfiles/
 overlays/
 yocto-*/
 
-# --- Videos / media ---
+# --- Videos / media (ignorar) ---
 *.mp4
 *.mov
 *.mkv
 *.avi
 
-# --- Pesos ML / modelos ---
+# --- Modelos ML / binarios pesados (recomendado ignorar) ---
 *.pt
 *.onnx
 *.bin
@@ -24,3 +28,7 @@ yocto-*/
 .venv/
 __pycache__/
 *.pyc
+
+# Permitir placeholders si quieres dejar la carpeta vacía en el repo
+!artifacts/.gitkeep
+!artifacts/README.md
