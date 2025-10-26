@@ -1,1 +1,26 @@
+# --- Artifacts Yocto / binarios / firmware ---
+artifacts/
+*.wic*
+*.rpi-sdimg*
+*.bmap
+*.manifest
+*.dtb
+bootfiles/
+overlays/
+yocto-*/
+
+# --- Videos / media ---
 *.mp4
+*.mov
+*.mkv
+*.avi
+
+# --- Pesos ML / modelos ---
+*.pt
+*.onnx
+*.bin
+
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
