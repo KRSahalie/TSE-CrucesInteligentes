@@ -19,6 +19,12 @@
 - Desarrollo del script en pythton para deteccion de vehiculos y peatones.
 - Actualizacion de la documentacion en el repositorio.
 
+## 25/10/2025
+- Correccion de erroes.
+
+## 9/11/2025
+- Reformulacion del programa en python para funcionamiento 100% con 2 camaras.
+
 ## Estado Actual
 - El proyecto y la documentación **siguen en desarrollo**.
 - Próximos pasos: comprobación del funcionamiento del script y ajustes finales en los documentos de la entrega preliminar.
