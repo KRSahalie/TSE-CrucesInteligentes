@@ -28,7 +28,20 @@ Esta bitácora documenta los avances realizados por Elena, en el proyecto **Cruc
 -Busqué más fuentes bibliograficas, intentando encontrar alguna que nos guie en la integración de todas las partes del proyecto.
 
 ---
-## 20/10/20025
+## 20/10/2025
 -revisión final para hacer la entrega preliminar de la primera parte del proyecto. 
 -pasar lo del readme al overleaf.
+
+---
+## 10/11/2025
+-Inicio de revisión para generar el informe escrito del proyecto. 
+-Inicié a redactar el informe primero en un documento aparte, para después agregar la información al readme.
+
+---
+## 11/11/2025
+-Se continuó con el informe escrito. 
+
+---
+## 14/11/2025
+-Se continúo con el análisis del cádigo generado hasta ahora para la defensa del proyecto 
 
