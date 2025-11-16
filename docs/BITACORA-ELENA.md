@@ -43,5 +43,9 @@ Esta bitácora documenta los avances realizados por Elena, en el proyecto **Cruc
 
 ---
 ## 14/11/2025
--Se continúo con el análisis del cádigo generado hasta ahora para la defensa del proyecto 
+-Se continúo con el análisis del cádigo generado hasta ahora para la defensa del proyecto
+
+---
+## 16/11/2025
+-Terminé con el reporte escrito del proyecto
 
