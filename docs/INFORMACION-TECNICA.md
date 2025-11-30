@@ -1,105 +1,271 @@
-# 6. Vista Funcional del Sistema: Descomposición de Funciones
+# Cruces Inteligentes con Edge AI
 
-El sistema **Cruces Inteligentes con Edge AI** se descompone en módulos funcionales esenciales para cumplir con los requerimientos establecidos anteriormente. Esta vista describe las capacidades del sistema, basándose en la necesidad de captura, procesamiento y clasificación de objetos en cruces concurridos, además de los módulos para el control del semáforo del cruce.
+Proyecto de prototipo para un sistema de **cruce inteligente** basado en **visión por computadora en el borde (Edge AI)** usando:
 
-### I. Captura y Preprocesamiento de Video
-Este módulo se encarga de adquirir el flujo de video en tiempo real desde las cámaras conectadas al Raspberry Pi. Los frames obtenidos se preprocesan para optimizar el rendimiento del modelo de IA mediante técnicas como redimensionamiento, filtrado y normalización. Además, se segmenta el entorno del cruce para diferenciar vías vehiculares, pasos peatonales y zonas de fauna, facilitando la clasificación contextual de los objetos detectados.
+- Raspberry Pi 4
+- Dos cámaras USB
+- Modelo **YOLOv5n en formato ONNX** con **OpenCV DNN**
+- Imagen Linux mínima generada con **Yocto Project**
+- Control de semáforo por máquina de estados en Python
+- Comunicación entre procesos mediante archivos en `/tmp`
 
-### II. Procesamiento e Inferencia con IA
-Aquí se ejecutan los modelos de aprendizaje automático sobre los frames preprocesados. El sistema detecta y clasifica en tiempo real vehículos, peatones y fauna, analizando su movimiento para estimar dirección y velocidad. Con esta información, el módulo toma decisiones locales sobre el estado del cruce, como activar o no el paso peatonal, priorizando la seguridad y la fluidez del tránsito.
+El sistema detecta peatones, vehículos y animales, y ajusta el semáforo según reglas locales orientadas a la **seguridad**.
 
-### III. Control del Cruce Inteligente
-Este módulo traduce las decisiones de la IA en acciones concretas sobre el semáforo. En función del análisis del entorno, activa o desactiva las luces (rojo, verde) en la simulación. La visualización del semáforo puede implementarse en Python utilizando bibliotecas como OpenCV, Tkinter o Pygame, permitiendo mostrar de manera gráfica el estado de las señales. Además, este módulo gestiona prioridades de paso según la densidad de tráfico y supervisa que los actuadores respondan correctamente, aunque el semáforo sea virtual.
+---
 
-### IV. Sistema Embebido y Software Base
-Se encarga de la administración del entorno de ejecución sobre la Raspberry Pi. Incluye la construcción de la imagen de Linux embebido con Yocto Project, integrando las dependencias necesarias (OpenCV, TensorFlow Lite). Además, gestiona los recursos del sistema y asegura la inicialización automática y el monitoreo constante del servicio principal que mantiene funcionando todo el sistema.
+## 6. Vista Funcional del Sistema
 
-### V. Registro y Monitoreo del Sistema
-Este módulo documenta la operación del sistema para su validación y depuración. Registra eventos importantes, como detecciones y decisiones, permite la visualización del estado del cruce mediante una interfaz local o remota, y facilita la exportación de datos a una red de monitoreo o almacenamiento local para análisis posterior.
+El sistema se organiza en varios módulos funcionales que cooperan entre sí para capturar video, detectar actores viales, tomar decisiones y controlar el semáforo.
 
-| Módulo Funcional | Descripción General | Funciones Específicas Requeridas |
-|-----------------|------------------|--------------------------------|
-| I. Captura y Preprocesamiento de Video | Control del flujo de video proveniente de la cámara conectada al Raspberry Pi, preparando las imágenes para análisis de IA. | 1. Captura de video en tiempo real. 2. Preprocesamiento (redimensionar, filtrar, normalizar). 3. Segmentación del entorno (calles, pasos peatonales, zonas de fauna). |
-| II. Procesamiento e Inferencia con IA | Uso de modelos de aprendizaje automático (TensorFlow Lite + OpenCV) para detectar entidades relevantes. | 1. Detección y clasificación de vehículos, peatones y fauna. 2. Análisis de movimiento (dirección y velocidad). 3. Toma de decisiones local para paso peatonal. |
-| III. Control del Cruce Inteligente | Gestiona señales del semáforo según el procesamiento de IA. | 1. Activación de señales (rojo/verde). 2. Gestión de prioridades según densidad de tráfico. 3. Supervisión del estado de los actuadores. |
-| IV. Sistema Embebido y Software Base | Administración del entorno de ejecución sobre Raspberry Pi, integración del SO embebido, bibliotecas y servicios. | 1. Integración Yocto Project (OpenCV, TensorFlow Lite, GPIO). 2. Gestión de recursos (CPU, memoria, sensores). 3. Inicialización y monitoreo del servicio principal. |
-| V. Registro y Monitoreo del Sistema | Registro de eventos y resultados para validación y depuración. | 1. Registro de actividad (detecciones, decisiones). 2. Interfaz de diagnóstico local o remota. 3. Exportación de datos a red o almacenamiento local. |
+### 6.1 Módulos principales
 
-# 7. Arquitectura del Sistema Propuesto (Hardware y Software)
+1. **Módulo de captura de video (por proceso)**
+   - Cada script (`people_counter_cam.py` y `veh_counter_cam.py`) abre una cámara USB independiente.
+   - Realiza:
+     - Captura continua de frames con V4L2.
+     - Redimensionamiento a la resolución de trabajo (p. ej. 960×540).
+     - Conversión de color y normalización de píxeles para el modelo ONNX.
 
-La arquitectura define la estructura física y lógica del nodo de monitoreo, implementando un esquema de **Edge Computing** donde el procesamiento ocurre en el dispositivo, no en la nube.  
-El nodo procesa video en tiempo real para la detección de peatones, vehículos y fauna, y controla un semáforo virtual mostrando el flujo del cruce en una pantalla conectada al sistema.
+2. **Detección y clasificación de objetos (YOLOv5n ONNX + OpenCV DNN)**
+   - Ambos scripts usan un modelo **YOLOv5n** exportado a **ONNX**, ejecutado con `cv2.dnn`.
+   - Funciones:
+     - Detección de **personas** en el módulo peatonal.
+     - Detección de **vehículos** y **animales** en el módulo vehicular.
+     - Filtrado por confianza mínima y Non-Maximum Suppression (NMS).
+   - El módulo vehicular incluye además:
+     - Región de interés opcional mediante máscara.
+     - Separación explícita entre clases de vehículo y clases de animal.
 
-## Arquitectura de Hardware 💾
+3. **Seguimiento y análisis de movimiento (VehCam)**
+   - El script `veh_counter_cam.py` integra:
+     - **Flujo óptico (FlowGate)** para distinguir objetos realmente en movimiento.
+     - **SmoothTracker (Kalman + EMA)** para:
+       - Asociar detecciones a lo largo del tiempo.
+       - Contabilizar vehículos en movimiento de forma robusta.
+   - Esto permite generar un conteo de “vehículos en movimiento” menos sensible a ruido.
 
-El nodo se basa en una plataforma de bajo costo y alta flexibilidad:
+4. **Lógica de flags y salida por proceso**
+   - Cada módulo produce su propia salida en formato JSON por consola y en archivos en `/tmp`:
+     - `people_counter_cam.py`:
+       - `/tmp/ped_count.txt`: número de personas detectadas.
+       - `/tmp/ped_flag.txt`: flag binario si el conteo supera un umbral.
+     - `veh_counter_cam.py`:
+       - `/tmp/veh_moving.txt`: conteo de vehículos en movimiento.
+       - `/tmp/veh_flag.txt`: flag binario de presencia vehicular relevante.
+       - `/tmp/animal_flag.txt`: flag persistente de animal detectado (con cooldown de limpieza).
+   - Estos archivos son la interfaz de comunicación hacia el controlador del semáforo.
 
-- **Plataforma de Cómputo Embebido:** Raspberry Pi 4 Model B (4GB RAM), adecuada para procesamiento de video en tiempo real y ejecución de modelos TensorFlow Lite.  
-- **Periféricos de Entrada (Visión):** Dos cámaras USB conectadas a la Raspberry Pi, encargadas de capturar video de alta resolución de diferentes ángulos del cruce. Se usan puertos USB 3.0 para asegurar ancho de banda suficiente.  
-- **Periférico de Salida (Visualización):** Pantalla HDMI conectada a la Raspberry Pi para mostrar el flujo de video en tiempo real, el estado del semáforo virtual y métricas relevantes.  
-- **Almacenamiento:** Tarjeta MicroSD Kingston Canvas Select Plus de 32GB, suficiente para almacenar el sistema operativo, modelos de IA y datos temporales de prueba.  
-- **Conectividad:** Módulo Ethernet/WiFi integrado para la comunicación de métricas y gestión remota del nodo dentro de la red de monitoreo.
+5. **Controlador del semáforo (máquina de estados)**
+   - El script `traffic_control.py` (controlador principal) lee periódicamente:
+     - `/tmp/ped_flag.txt`
+     - `/tmp/veh_flag.txt`
+     - `/tmp/animal_flag.txt`
+   - Aplica una máquina de estados que controla:
+     - Fases de **verde/rojo para vehículos**.
+     - Fase **peatonal**.
+     - **Bloqueo por animal** (estado de seguridad).
+     - **Cooldown de seguridad** tras cambios de fase.
+   - El resultado se registra en logs con marcas de tiempo, reflejando:
+     - Estados de las luces.
+     - Motivo de cada transición (peatones, animal, ciclo normal, cooldown, etc.).
 
-## Arquitectura de Software 💻
+6. **Interfaz gráfica opcional (GUI)**
+   - `traffic_gui.py` es una interfaz Tkinter para:
+     - Lanzar y detener los procesos durante desarrollo.
+     - Ver en vivo los logs de cada módulo.
+     - Mostrar el estado del semáforo en una ventana de escritorio.
+   - Esta GUI se emplea en entorno de desarrollo (PC / Raspbian) y no está integrada en la imagen final de Yocto, pero puede añadirse como trabajo futuro.
 
-La estructura de software se organiza en cuatro capas principales:
+---
 
-### 1. Capa de Aplicación (Edge AI)
-- **Algoritmo de Monitoreo:** Código que orquesta la captura, detección, clasificación y tracking de objetos en tiempo real desde las cámaras.  
-- **Modelos de ML:** Archivos optimizados (`.tflite`) que ejecutan la inferencia directamente en la Raspberry Pi.
+## 7. Arquitectura del Sistema Propuesto (Hardware y Software)
 
-### 2. Capa de Control del Semáforo y Visualización
-- **Simulación de Semáforo:** Visualización del estado de las señales (rojo/amarillo/verde) utilizando Python con bibliotecas como OpenCV, Tkinter o Pygame.  
-- **Gestión de Prioridades:** Ajuste de tiempos de cambio de luz según la densidad de tráfico y presencia de peatones.  
-- **Visualización en Pantalla:** Muestra el flujo de video en tiempo real, el semáforo virtual y métricas importantes para supervisión.  
-- **Supervisión de Actuadores:** Asegura que los cambios de estado se apliquen correctamente.
+### 7.1 Arquitectura de Hardware
 
-### 3. Capa de Middleware (Librerías)
-- **TensorFlow Lite:** Runtime eficiente para la ejecución de modelos de IA en la Raspberry Pi.  
-- **OpenCV:** Librería de Visión por Computador para preprocesamiento de frames, segmentación de zonas del cruce y utilidades de imagen.
+El prototipo se implementa sobre un nodo embebido basado en:
 
-### 4. Capa de Sistema Operativo
-- **Linux Embebido:** Imagen mínima optimizada para Raspberry Pi 4, generada mediante Yocto Project.  
-- **Kernel Linux:** Núcleo configurado para optimizar el rendimiento, la gestión de periféricos y la comunicación con cámaras USB.
+- **Raspberry Pi 4 Model B (4 GB RAM)**
+  - CPU ARM quad-core, suficiente para ejecutar YOLOv5n ONNX en CPU en tiempo real (con resoluciones moderadas).
+- **Dos cámaras USB UVC**
+  - Una para el módulo peatonal (**PeatonCam**).
+  - Otra para el módulo vehicular (**VehCam**).
+  - Conectadas por puertos USB y accedidas vía V4L2 (`/dev/video*`).
+- **Almacenamiento**
+  - Tarjeta microSD con la imagen de Yocto generada específicamente para el proyecto.
+- **Alimentación**
+  - Fuente estándar para Raspberry Pi 4 (5V, 3A).
+- **Conectividad (opcional)**
+  - Ethernet / WiFi integrados.
+  - En el prototipo, la conectividad se usó principalmente para depuración por SSH; no se implementó comunicación con un servidor central.
 
-# 8. Dependencias de Software 📦
+> Nota: Aunque el sistema está preparado conceptualmente para controlar un semáforo físico mediante GPIO + relés, el prototipo se enfoca en la lógica de control y el registro de estados. La conexión a hardware real puede añadirse como extensión.
 
-| Dependencia | Tipo | Propósito |
-|-------------|------|-----------|
-| **TensorFlow Lite (TFLite)** | Runtime de ML | Ejecución de modelos de detección y clasificación en el Edge. |
-| **OpenCV** | Librería de Visión | Manipulación de video, preprocesamiento de imágenes para el modelo de ML. |
-| **Python 3** | Intérprete/Librerías | Lenguaje base para el desarrollo del código de la aplicación (si aplica). |
-| **Drivers de Cámara (V4L2)** | Kernel/Drivers | Interfaz para la comunicación con el módulo de cámara de la Raspberry Pi. |
+---
 
-# 9. Estrategia de Integración (Yocto Project) 🛠️
+### 7.2 Arquitectura de Software
 
-La estrategia de integración asegura que la aplicación de **Edge AI** corra de manera robusta sobre un sistema operativo optimizado y personalizado para la **Raspberry Pi 4 Model B**. Se busca empaquetar todo en una **imagen única**, lista para deploy y ejecución en el nodo de monitoreo.
+La arquitectura de software se organiza en capas:
 
-### 1. Identificación de Recetas
-- Analizar las dependencias necesarias para el proyecto, incluyendo TensorFlow Lite, OpenCV y librerías adicionales como numpy, libjpeg y zlib.
-- Identificar o sintetizar las recetas (`.bb files`) que permitan compilar estas dependencias para la arquitectura ARM de la Raspberry Pi.
+#### Capa 1 – Sistema Operativo Embebido (Yocto)
 
-### 2. Generación de Imagen Base
-- Configurar Yocto Project para el target **Raspberry Pi 4 B**.
-- Generar una imagen mínima de Linux embebido con soporte para CPU, GPU, USB 3.0, HDMI y WiFi/Ethernet.
+- Imagen Linux mínima generada con **Yocto Project** para Raspberry Pi 4.
+- Soporte para:
+  - Python 3
+  - OpenCV 4.5.5 (incluyendo módulo DNN)
+  - V4L2 (cámaras USB)
+  - systemd
+- Servicio `traffic-app.service` que:
+  - Invoca el script `/opt/traffic-app/start-traffic-app.sh` al arranque.
+  - Inicia los tres procesos principales (PeatonCam, VehCam y controlador).
 
-### 3. Inclusión de Dependencias
-- Modificar la receta de la imagen final para incluir todas las librerías y frameworks identificados.
-- Asegurar la compilación correcta para ARM y realizar pruebas de compatibilidad.
+#### Capa 2 – Aplicación principal (scripts en `/opt/traffic-app/`)
 
-### 4. Integración de la Aplicación Principal
-- Crear la receta para la aplicación de monitoreo del cruce inteligente.
-- Configurar la aplicación para que se ejecute automáticamente al iniciar el sistema operativo y controle las cámaras, semáforo virtual y envío de métricas.
+- `people_counter_cam.py`
+  - Abre la cámara peatonal.
+  - Carga `yolov5n.onnx` con OpenCV DNN.
+  - Detecta personas y genera conteos y flags.
 
-### 5. Síntesis de Imagen Final
-- Ejecutar `bitbake` para compilar la imagen final, que incluirá Linux embebido, librerías y la aplicación de Edge AI.
-- Validar que la imagen generada sea funcional y estable.
+- `veh_counter_cam.py`
+  - Abre la cámara vehicular.
+  - Carga `yolov5n.onnx` con OpenCV DNN.
+  - Distingue vehículos y animales.
+  - Aplica flujo óptico + tracker para vehículos en movimiento.
+  - Genera flags de vehículo y de animal.
 
-### 6. Despliegue y Verificación
-- Instalar la imagen en la MicroSD de la Raspberry Pi.
-- Conectar las cámaras, la pantalla HDMI y verificar la operación completa del nodo (procesamiento de video en tiempo real, visualización del semáforo virtual, registro de métricas).
+- `traffic_control.py`
+  - Implementa la máquina de estados del semáforo.
+  - Lee las flags en `/tmp`.
+  - Registra la evolución del sistema en logs estilo timeline.
 
-**Notas adicionales:**  
-- Aún en desarrollo: se agregarán imágenes de la arquitectura y conexiones físicas.  
-- Se ampliará la especificación de hardware incluyendo pantalla, cámaras, microSD y conectividad, para documentar completamente el nodo de monitoreo.
+- `traffic_gui.py` (uso opcional en desarrollo)
+  - Interfaz gráfica para PC / entorno Raspbian.
+  - No parte de la imagen Yocto final.
 
+- `yolov5n.onnx`
+  - Modelo de detección optimizado para CPU.
+  - Seleccionado específicamente para ser compatible con OpenCV 4.5.5 del entorno Yocto.
+
+#### Capa 3 – Comunicación entre módulos
+
+- Todos los procesos se coordinan mediante **archivos de texto** en `/tmp`:
+  - `ped_count.txt`, `ped_flag.txt`
+  - `veh_moving.txt`, `veh_flag.txt`
+  - `animal_flag.txt`
+- Ventajas:
+  - Sencillo de depurar.
+  - No requiere sockets ni colas de mensajes.
+  - Adecuado para un prototipo embebido monolítico.
+
+---
+
+## 8. Dependencias de Software
+
+Las dependencias reflejan la implementación real del prototipo, tanto en desarrollo como en la imagen Yocto.
+
+### 8.1 Dependencias principales (aplicación)
+
+- **Python 3**
+  - Lenguaje base de todos los scripts.
+
+- **OpenCV 4.5.5 (con módulo DNN)**
+  - Captura de video (VideoCapture).
+  - Preprocesamiento (resize, conversión de color, blobs).
+  - Inferencia sobre `yolov5n.onnx` mediante `cv2.dnn.readNetFromONNX`.
+  - Operaciones auxiliares (dibujado de cajas en modo debug/GUI).
+
+- **NumPy**
+  - Manipulación de tensores y arreglos numéricos.
+  - Operaciones sobre salidas del modelo y flujo óptico.
+
+- **Standard Library de Python**
+  - `argparse`: manejo de argumentos por línea de comandos.
+  - `time`, `json`, `os`, `math`: utilidades generales.
+  - `subprocess`, `threading`, `queue` (para la GUI).
+
+- **Tkinter** (solo para GUI opcional)
+  - Implementación de `traffic_gui.py` en entorno de desarrollo.
+
+### 8.2 Dependencias del sistema embebido (Yocto / Linux)
+
+- **Yocto Project + meta-raspberrypi**
+  - Generación de la imagen Linux mínima para Raspberry Pi 4.
+- **systemd**
+  - Manejo del servicio `traffic-app.service`.
+- **BusyBox / coreutils**
+  - Herramientas básicas de sistema.
+- **V4L2 y controladores UVC**
+  - Soporte para cámaras USB.
+- **GStreamer (soporte básico vía OpenCV)**
+  - Backend de captura en algunos pipelines de OpenCV.
+
+> Importante: **TensorFlow Lite y YOLOv8 no se utilizaron en el prototipo final.**  
+> Se reemplazaron por **YOLOv5n ONNX + OpenCV DNN** debido a compatibilidad y peso de las dependencias en Yocto.
+
+---
+
+## 9. Estrategia de Integración y Despliegue
+
+La integración del sistema se realizó de forma incremental, combinando desarrollo en PC, pruebas en Raspbian y despliegue final en Yocto.
+
+### 9.1 Fases de integración
+
+1. **Diseño inicial y propuesta**
+   - Definición de la idea de cruces inteligentes con Edge AI.
+   - Redacción de la propuesta técnica y arquitectónica.
+
+2. **Prototipo de control de semáforo en Python**
+   - Implementación de una máquina de estados para:
+     - Fases vehiculares.
+     - Fase peatonal.
+     - Estados especiales por detección de animal.
+   - El controlador se pensó desde el inicio para consumir flags de detección externos.
+
+3. **Pruebas de detección en entorno de escritorio**
+   - Ejecución de scripts de detección en PC con GPU / CPU.
+   - Uso inicial de modelos orientados a GPU, que luego resultaron incompatibles con el entorno Yocto de la Raspberry Pi.
+
+4. **Migración a modelo compatible (YOLOv5n ONNX + OpenCV DNN)**
+   - Identificación de incompatibilidades entre ciertas variantes de YOLO y OpenCV 4.5.5.
+   - Selección y prueba de `yolov5n.onnx`, validando:
+     - Carga correcta en la Raspberry Pi.
+     - Formato de salida `(25200, 85)`.
+   - Ajuste del postprocesamiento:
+     - Corrección del escalado de coordenadas.
+     - Adaptación del orden de ejes y del formato de detecciones.
+
+5. **Separación en procesos y comunicación por `/tmp`**
+   - Definición de tres procesos:
+     - PeatonCam (peatones).
+     - VehCam (vehículos + animales).
+     - Controlador de semáforo.
+   - Establecimiento de un protocolo basado en archivos de texto:
+     - Flags y conteos actualizados frame a frame.
+     - Lectura periódica desde el controlador.
+
+6. **Construcción de la imagen Yocto**
+   - Creación de una imagen mínima con:
+     - Python + OpenCV + dependencias básicas.
+   - Adición de:
+     - Scripts de aplicación en `/opt/traffic-app/`.
+     - Modelo `yolov5n.onnx`.
+     - Script de arranque `start-traffic-app.sh`.
+     - Servicio `traffic-app.service`.
+
+7. **Depuración en la Raspberry Pi**
+   - Revisión de errores de arranque (problemas de flasheo).
+   - Comprobación de que:
+     - El servicio se ejecuta correctamente.
+     - Las cámaras se abren sin problemas.
+     - Los scripts escriben correctamente en `/tmp`.
+   - Ajustes finales vía SSH:
+     - Resolución de la cámara.
+     - Frecuencia de detección.
+     - Afinado de flags de animal y de vehículos.
+
+8. **Integración de GUI (en entorno de desarrollo)**
+   - Implementación de `traffic_gui.py` para:
+     - Visualizar logs de los procesos.
+     - Ver en vivo el estado del semáforo.
+   - Por razones de tiempo y estabilidad de la imagen, la GUI no se integró en la imagen Yocto final, pero se conserva como herramienta adicional de demostración.
+
+---
