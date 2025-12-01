@@ -25,8 +25,27 @@
 ## 9/11/2025
 - Reformulacion del programa en python para funcionamiento 100% con 2 camaras.
 
-## Estado Actual
-- El proyecto y la documentación **siguen en desarrollo**.
-- Próximos pasos: comprobación del funcionamiento del script y ajustes finales en los documentos de la entrega preliminar.
-- Actualizacion de la documentacion en el repositorio.
+## 12/11/2025
+- Separación del código en dos módulos independientes: `people_counter_cam.py` (peatones) y `veh_counter_cam.py` (vehículos).  
+- Ajuste de los parámetros de tamaño de imagen, umbral de confianza y eliminación de cajas superpuestas.  
+- Primera validación del conteo de personas.
 
+## 14/11/2025
+- Implementación de la lógica de máscaras para limitar las detecciones.  
+- Pruebas de detección de peatones con diferentes resoluciones de cámara.  
+
+## 17/11/2025
+- Implementacion de la logica para distinguir vehículos en movimiento de vehículos detenidos.  
+- Primera validación del conteo de vehiculos en movimiento.
+
+## 19/11/2025
+- Implementación y ajuste de las banderas de salida (archivos de flag).  
+- Calibración de umbrales de decisión para el encendido/apagado de las banderas.  
+
+## 22/11/2025
+- Pruebas integrales de `people_counter_cam.py` y `veh_counter_cam.py` ejecutándose en la Raspberry Pi 4 con la imagen de Yocto.  
+- Ajustes finales de parámetros de confianza, tamaño de imagen y frecuencias de detección para asegurar funcionamiento estable en tiempo real.  
+- Documentación detallada del flujo de trabajo de ambos scripts.
+
+## Estado Actual
+- Proyecto presentado.
