@@ -49,3 +49,11 @@ Esta bitácora documenta los avances realizados por Elena, en el proyecto **Cruc
 ## 16/11/2025
 -Terminé con el reporte escrito del proyecto
 
+---
+## 28/11/2025
+-Debimos hacer cambios en el proyecto, por lo que hubo que corregir el reporte escrito.
+
+---
+## 30/11/2025
+-Terminé las modificaciones del reporte. 
+
